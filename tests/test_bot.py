@@ -1,6 +1,7 @@
 import os
 import sys
 from datetime import datetime, time
+from pathlib import Path
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
@@ -8,7 +9,8 @@ import pytest
 os.environ.setdefault("DISCORD_TOKEN", "test_token")
 os.environ.setdefault("WISH_CHANNEL_ID", "12345")
 
-sys.path.insert(0, "C:/Users/kashy/Documents/ChatGPT/11_11 bot")
+repo_root = Path(__file__).parent.parent
+sys.path.insert(0, str(repo_root))
 
 from bot import TIMEZONE, WISH_TIMES, WishBot, get_env, get_env_int
 
